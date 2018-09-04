@@ -16,7 +16,7 @@ export const randomStory = () => ({
 
 export const fetchData = () => (dispatch) => {
   dispatch(requestData());
-  return fetch('http://api.icndb.com/jokes/random/3')
+  return fetch('http://api.icndb.com/jokes/random/100?escape=javascript')
     .then(res => res.json())
     .then(json => dispatch(receiveData(json)));
 };
