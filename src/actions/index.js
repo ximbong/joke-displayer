@@ -9,6 +9,11 @@ const receiveData = json => ({
   data: json.value,
 });
 
+export const RANDOM_STORY = 'RANDOM_STORY';
+export const randomStory = () => ({
+  type: RANDOM_STORY,
+});
+
 export const fetchData = () => (dispatch) => {
   dispatch(requestData());
   return fetch('http://api.icndb.com/jokes/random/3')

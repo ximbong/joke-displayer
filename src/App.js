@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Button } from 'antd';
 
 import NavBar from './components/NavBar';
 
-import { fetchData } from './actions';
+import { fetchData, randomStory } from './actions';
 import './App.css';
 
 class App extends Component {
@@ -17,7 +18,12 @@ class App extends Component {
     const { data } = this.props;
     console.log(data);
 
-    return <NavBar />;
+    return (
+      <div>
+        <NavBar />
+        <Button type="primary">Another Joke</Button>
+      </div>
+    );
   }
 }
 
@@ -28,6 +34,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetch: () => dispatch(fetchData()),
+  random: () => dispatch(randomStory()),
 });
 
 App.propTypes = {
@@ -35,4 +42,7 @@ App.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);
