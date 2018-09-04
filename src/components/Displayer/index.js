@@ -3,10 +3,18 @@ import PropTypes from 'prop-types';
 
 import './index.css';
 
-const Displayer = ({ data }) => <div>{data}</div>;
+const Displayer = (props) => {
+  const {
+    data: { joke },
+  } = props;
+
+  return <div className="displayer">{joke}</div>;
+};
 
 Displayer.propTypes = {
-  data: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    joke: PropTypes.string,
+  }).isRequired,
 };
 
 export default Displayer;
