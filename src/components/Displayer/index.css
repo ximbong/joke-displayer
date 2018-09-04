@@ -1,4 +1,8 @@
 .displayer {
   margin: 30px;
-  min-height: 42px;
+  padding: 20px;
+  min-height: 84px;
+  background: #e6fffb;
+  border: 1px solid grey;
+  border-radius: 3px;
 }
